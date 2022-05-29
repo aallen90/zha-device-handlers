@@ -32,6 +32,7 @@ from zhaquirks.xiaomi import (
     XiaomiCustomDevice,
 )
 
+XIAOMI_PROFILE_ID = 0xA1E0
 XIAOMI_DEVICE_TYPE = 0x61
 
 class Switch(XiaomiCustomDevice):
@@ -42,7 +43,10 @@ class Switch(XiaomiCustomDevice):
         super().__init__(*args, **kwargs)
 
     signature = {
-        MODELS_INFO: [(LUMI, "lumi.switch.b2laus01")],
+        MODELS_INFO: [
+                (LUMI, "lumi.switch.b2laus01"),
+                (LUMI, "lumi.switch.l2aeu1"),
+            ],
         ENDPOINTS: {
             # <SimpleDescriptor endpoint=1 profile=260 device_type=256
             # device_version=1
@@ -83,8 +87,8 @@ class Switch(XiaomiCustomDevice):
             # input_clusters=[]
             # output_clusters=[33]>
             242: {
-                PROFILE_ID: zha.PROFILE_ID,
-                DEVICE_TYPE: zha.DeviceType.OCCUPANCY_SENSOR,
+                PROFILE_ID: XIAOMI_PROFILE_ID,
+                DEVICE_TYPE: XIAOMI_DEVICE_TYPE,
                 OUTPUT_CLUSTERS: [GreenPowerProxy.cluster_id],
             },
         },
@@ -119,7 +123,7 @@ class Switch(XiaomiCustomDevice):
                 OUTPUT_CLUSTERS: [Time.cluster_id, Ota.cluster_id],
             },
             242: {
-                PROFILE_ID: zha.PROFILE_ID,
+                PROFILE_ID: XIAOMI_PROFILE_ID,
                 DEVICE_TYPE: XIAOMI_DEVICE_TYPE,
                 OUTPUT_CLUSTERS: [GreenPowerProxy.cluster_id],
             },
