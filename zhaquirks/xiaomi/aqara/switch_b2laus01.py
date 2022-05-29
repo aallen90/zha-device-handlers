@@ -112,7 +112,7 @@ class Switch(XiaomiCustomDevice):
             },
             2: {
                 PROFILE_ID: zha.PROFILE_ID,
-                DEVICE_TYPE: zha.DeviceType.MAIN_POWER_OUTLET,
+                DEVICE_TYPE: zha.DeviceType.ON_OFF_SWITCH,
                 INPUT_CLUSTERS: [
                     BasicCluster,
                     Identify.cluster_id,
